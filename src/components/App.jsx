@@ -2,6 +2,7 @@ import { Component } from 'react';
 import ContactForm from './ContactForm/ContactForm';
 import Filter from './Filter/Filter';
 import ContactList from './ContactList/ContactList';
+import style from '../components/App.module.scss';
 
 class App extends Component {
   state = {
@@ -14,7 +15,7 @@ class App extends Component {
     filter: '',
   };
 
-  addNewContact = newContact => {
+  handleAddNewContact = newContact => {
     this.setState(prevState => ({
       contacts: [...prevState.contacts, newContact],
     }));
@@ -33,7 +34,7 @@ class App extends Component {
     );
   };
 
-  onDeleteContact = contactId => {
+  handleDeleteContact = contactId => {
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(({ id }) => id !== contactId),
     }));
@@ -45,14 +46,14 @@ class App extends Component {
 
     return (
       <div>
-        <h1>Phonebook</h1>
-        <ContactForm onSubmit={this.addNewContact} contacts={contacts} />
+        <h1 className={style.title}>Phonebook</h1>
+        <ContactForm onSubmit={this.handleAddNewContact} contacts={contacts} />
 
         <h2>Contacts</h2>
         <Filter value={filter} onChange={this.changeFilter} />
         <ContactList
           visibleContacts={visibleContacts}
-          onDeleteContact={this.onDeleteContact}
+          onDeleteContact={this.handleDeleteContact}
         />
       </div>
     );
