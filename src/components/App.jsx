@@ -49,12 +49,14 @@ class App extends Component {
         <h1 className={style.title}>Phonebook</h1>
         <ContactForm onSubmit={this.handleAddNewContact} contacts={contacts} />
 
-        <h2>Contacts</h2>
-        <Filter value={filter} onChange={this.changeFilter} />
-        <ContactList
-          visibleContacts={visibleContacts}
-          onDeleteContact={this.handleDeleteContact}
-        />
+        <h2 className={style.title}>Contacts</h2>
+        <div className={style.contact_list_container}>
+          <Filter value={filter} onChange={this.changeFilter} />
+          <ContactList
+            visibleContacts={visibleContacts}
+            onDeleteContact={this.handleDeleteContact}
+          />
+        </div>
       </div>
     );
   }

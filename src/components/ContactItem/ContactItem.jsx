@@ -1,11 +1,17 @@
 import PropTypes from 'prop-types';
+import style from './ContactItem.module.scss';
 
 const ContactItem = ({ id, name, number, onDeleteContact }) => {
   return (
-    <li>
-      {name}: {number}
-      <button type="button" onClick={() => onDeleteContact(id)}>
-        Delete
+    <li className={style.item}>
+      <span className={style.itemName}>{name}:</span>
+      <span className={style.itemNumber}>{number}</span>
+      <button
+        type="button"
+        onClick={() => onDeleteContact(id)}
+        className={style.delete_btn}
+      >
+        x
       </button>
     </li>
   );
