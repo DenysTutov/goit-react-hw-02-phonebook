@@ -3,7 +3,6 @@ import ContactItem from '../ContactItem/ContactItem';
 import style from './ContactList.module.scss';
 
 const ContactList = ({ visibleContacts, onDeleteContact }) => {
-  console.log(visibleContacts);
   return (
     <ul className={style.list}>
       {visibleContacts.length !== 0 ? (

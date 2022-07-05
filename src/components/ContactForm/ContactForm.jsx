@@ -22,8 +22,8 @@ class ContactForm extends Component {
     //   }
     // }
 
-    const matchName = this.props.contacts.some(
-      contact => name.toLowerCase() === contact.name.toLowerCase()
+    const matchName = this.props.contactsName.some(
+      contactName => name.toLowerCase() === contactName.toLowerCase()
     );
     if (matchName) {
       return alert(`${name} is already in contacts`);
@@ -85,6 +85,9 @@ class ContactForm extends Component {
   }
 }
 
-ContactForm.propTypes = { onSubmit: PropTypes.func.isRequired };
+ContactForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+  contactsName: PropTypes.arrayOf(PropTypes.string.isRequired),
+};
 
 export default ContactForm;
